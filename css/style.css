@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>90's profile card</title>
-  
-  
-  
-      <style>
-      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
-      body {
+body {
   margin: 0 auto;
   padding: 0;
   background: #222;
@@ -96,24 +86,3 @@
 #card span {
   font-family: courier;
 }
-    </style>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-
-</head>
-
-<body>
-  <div id="gradient"></div>
-<div id="card">
-  <img src="YupThat'sMe.png"/>
-  <h2>Ben Oakes</h2>
-  <p>Aspiring freshman student at the University of Mississippi.</p>
-  <p>Interested in technology, writing, and debate.</p>
-  <p>My dad said I needed a business card.</p>
-  <span class="left bottom">electronic mail: Ben@BenOakes.com</span>
-  <span class="right bottom"></span>
-</div>
-  
-  
-</body>
-</html>
