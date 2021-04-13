@@ -1,0 +1,81 @@
+<html>
+<head><title> Ben Oakes Hw24</title>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+
+<script> 
+$(document).ready(function(){
+    $("button").click(function()
+    {
+        var div = $("p");
+        div.animate({fontsize: '3em'}, "slow");
+    });
+});
+</script> 
+</head>
+
+<body>
+<div ng-app="">
+Type something in the input box:<br>
+Name : <input type ="text" ng-model="name" placeholder="Enter name here"><br>
+<h1>Hello {{name}}</h1>
+
+
+
+
+</div>
+
+
+<button>Start Animation</button> <br><br>
+
+<p style="background:#98bf21;height:100px;width:400px;position:absolute;">Ben Oakes</p><br><br>
+<br><br><br><br><br><br><br><br><br>
+
+<h1>Customers</h1>
+<div id="id01"></div>
+
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "https://www.w3schools.com/js/customers_mysql.php";
+
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        myFunction(this.responseText);
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(response) {
+    var arr = JSON.parse(response);
+    var i;
+    var out = "<table>";
+
+    for(i = 0; i < arr.length; i++) {
+        out += "<tr><td>" +
+        arr[i].Name +
+        "</td><td>" +
+        arr[i].City +
+        "</td><td>" +
+        arr[i].Country +
+        "</td></tr>";
+    }
+    out += "</table>";
+    document.getElementById("id01").innerHTML = out;
+}
+</script>
+<br><br>
+
+<div class="mapouter"><div class="gmap_canvas">
+<iframe width="600" height="500" id="gmap_canvas" 
+src="https://maps.google.com/maps?q=university%20of%20mississippi&t=k&z=15&ie=UTF8&iwloc=&output=embed" 
+frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+</iframe><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div>
+<style>.mapouter{text-align:right;height:500px;width:600px;}.gmap_canvas 
+{overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+<div id="googleMap" style="width:500px;height:380px;"></div> <br><br>
+
+</body>
+</html>
