@@ -1,17 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
-    body {
-    font-family: Courier;
+    .window {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-}
+    }
+    .field-row {
+        transform: translateX(10%);
+    }
+    body {
+    background-image: url(https://i.imgur.com/VvNhMb0.jpg);
+    background-position: 70% 25%;
+    background-repeat: no-repeat;
+    }
     </style>
-	<header>
+    <link rel="stylesheet" href="https://unpkg.com/xp.css">
+</head>
+<body>
+    <script>
+        function myFunction() {
+          document.body.style.backgroundColor = "#000080";
+          document.body.style.backgroundImage = "none"
+          setTimeout(function(){
+            document.body.style.backgroundPosition = "10px -5px";
+            document.body.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/b/b3/Windows_XP_Blue_Screen_of_Death_%28Forced%29.svg')";
+            document.getElementsByClassName('window')[0].style.visibility = 'hidden';
+          }, 2000);
+        }
+    </script>
 		<center>
-                <h1><b> 🙂 </b></h1>
-			</center>
-	</header>
+            <div class="window" style="width: 300px;">
+                <div class="title-bar">
+                  <div class="title-bar-text">Windows Installation tool</div>
+                  <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close" onclick="document.getElementsByClassName('window')[0].style.visibility = 'hidden'"></button>
+                  </div>
+                </div>
+                <div class="window-body">
+                  <p>This program will install Windows XP on your computer. In order to install Windows XP, please agree to the terms and conditions.</p>
+                <div class="field-row">
+                    <input checked type="checkbox" id="ie">
+                    <label for="ie" style="font-family: Arial, Helvetica, sans-serif;">Set my default browser to Internet Explorer</label><br>
+                </div>
+                <div class="field-row">
+                    <input type="checkbox" id="terms">
+                    <label for="terms" style="font-family: Arial, Helvetica, sans-serif;">I agree to the terms and conditions</label>
+                    </div><br>
+                  <button type="button" onclick="myFunction()" style="font-family:sans-serif;"><b>Install</b></button><br>
+                </div>
+              </div>
+		</center>
+</body>
 </html>
