@@ -1,0 +1,52 @@
+#CornerThing {
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+}
+
+body {
+    background-color: #15202b;
+}
+
+#SideNumber {
+    /** position: absolute;
+    right: 2%; 
+    Position works but it works weirdly when resizing the window. Didn't know about float at first **/
+    float: right;
+}
+
+.accordion {
+    float: left;
+    max-width: 640px;
+    min-width: 640px;
+    /** position: relative;
+    left: 1%; **/
+    margin-top: 25px;
+    margin-left: 6px;
+    margin-right: 6px; /** makes sure the accordian doesn't look awful on mobile **/
+}
+
+.card {
+    float: left;
+    margin-top: 25px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+ul {
+    list-style: none;
+}
+
+#Skills {
+    max-width: 640px;
+    font-size: 12pt;
+}
+
+@media only screen and (max-width: 720px) {
+    .accordion, .card {
+        min-width: 95%;
+        width: 95%;
+    }
+
+
+}
