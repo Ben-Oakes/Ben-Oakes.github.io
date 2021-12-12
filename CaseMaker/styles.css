@@ -18,4 +18,5 @@ body {
     border-style: dashed;
     white-space: pre-line;
     padding: 10px;
+    max-width: 95%;
 }

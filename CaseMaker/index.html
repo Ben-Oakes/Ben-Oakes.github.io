@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
+    <meta name=”robots” content=”noindex”>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -30,10 +31,38 @@
             <label for="City">What city?</label>
             <input type="text" id="CityField" name="City"><br>
             <label for="EndingOn">Ending On?</label>
-            <input type="date" name="EndingOn" id="EndingField">
+            <input type="date" name="EndingOn" id="EndingField"><br>
+            <label for="Status">Status:</label>
+            <select name="Status" id="StatusSelect">
+              <option value="null"></option>
+              <option value="was discharged">Discharged</option>
+              <option value="voluntarily quit.">Voluntary Quit</option>
+            </select>
+            <label for="DueTo">Due to</label>
+            <select name="DueTo" id="DueToSelect">
+              <option value=""></option>
+              <option value=" due to misconduct">Misconduct</option>
+              <option value=" due to tardiness">Tardiness (8 POINT ATTENDANCE POLICY)</option>
+              <option value=" due to violating company policy">Violating Company Policy</option>
+              <option value="">other (fill in manually)</option>
+            </select><br>
+            <label for="Decision">Decision:</label>
+            <select name="Decision" id="DecisionSelect">
+              <option value=""></option>
+              <option value="Affirmed. ">Affirmed</option>
+              <option value="Reversed. ">Reversed</option>
+            </select><br>
+            <label for="Eligibility">Eligible?</label>
+            <select name="Eligibility" id="EligibilitySelect">
+              <option value=""></option>
+              <option value="If otherwise eligible the claimant is entitled to unemployment benefits">Eligible for benefits</option>
+              <option value="The claimant is disqualified from receipt of unemployment benefits beginning [to do: add date selectors for this as well as the 8x weekly benefit thing]">Disqualified for benefits</option>
+            </select>
+            <br><br><input type="checkbox" name="Documents" id="DocumentsCheckbox">
+            <label for="Documents">Include evidence in introduction</label>
         </form>
 
-        <br><button type="button" class="btn btn-primary" onclick="Generate();"><i class="bi bi-gear-wide-connected"></i> Generate case template</button><br><br>
+        <br><button type="button" class="btn btn-primary" onclick="Generate();"><i class="bi bi-printer"></i> Generate case template</button><br><br>
 
     </div>
 
@@ -53,5 +82,7 @@
 
     <!-- My Script -->
     <script src="CaseMaker.js"></script>
+
+    <!-- TODO: Add a checkbox in the HTML for whether the claimant had documents or not, if checked, the opening sentence needs to have "and based on certain documents of evidence" added to it. Don't use an if statement in the generation string, but use an if statement to add "and certain documents of evidence" to the checkmark's variable if it's checked. -->
   </body>
 </html>
