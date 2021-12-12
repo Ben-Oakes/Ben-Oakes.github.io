@@ -1,0 +1,21 @@
+body {
+    background-color: #15202b;
+    color: white;
+    padding-left: 15px;
+}
+
+#input {
+    float: left;
+    padding-right: 5%;
+}
+
+#output {
+    float: left;
+    display: none;
+}
+
+#FinalOutput {
+    border-style: dashed;
+    white-space: pre-line;
+    padding: 10px;
+}
