@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
-    .window {
+    .mainwindow {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -18,25 +18,63 @@
     background-position: 70% 25%;
     background-repeat: no-repeat;
     }
+    .ControlPanel {
+    visibility: hidden;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    }
+    .PDFViewer {
+      visibility: hidden;
+      min-width: 100%;
+      height: 100%;
+    }
+    .PDFiframe iframe {
+      width: 100%;
+      min-height: 700px;
+      height: 100%;
+      
+    }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/xp.css">
+    <script src="tabfix.js"></script>
 </head>
 <body>
     <script>
-        function myFunction() {
+        function InstallUpdates() {
           document.body.style.backgroundColor = "#000080";
           document.body.style.backgroundImage = "none"
           setTimeout(function(){
             document.body.style.backgroundPosition = "10px -5px";
             document.body.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/b/b3/Windows_XP_Blue_Screen_of_Death_%28Forced%29.svg')";
-            document.getElementsByClassName('window')[0].style.visibility = 'hidden';
+            document.getElementsByClassName('mainwindow')[0].style.visibility = 'hidden';
+            document.getElementsByClassName('ControlPanel')[0].style.visibility = 'hidden';
+            document.getElementsByClassName('PDFViewer')[0].style.visibility = 'hidden';
           }, 2000);
         }
+        function ChangeFontStyleModern() {
+          var element = document.querySelector('*');
+          // still working on this
+        }
+        function setTheme(theme) {
+          stylesheet.href = theme;
+          document.getElementsByTagName("h1")[0].innerText = theme;
+        }
+        function OpenPDF() {
+          document.getElementsByClassName('mainwindow')[0].style.visibility = 'hidden';
+          document.getElementsByClassName('PDFViewer')[0].style.visibility = 'visible';
+        }
+        function ClosePDF() {
+          document.getElementsByClassName('mainwindow')[0].style.visibility = 'visible';
+          document.getElementsByClassName('PDFViewer')[0].style.visibility = 'hidden';
+        }
     </script>
+
 		<center>
-            <div class="window" style="width: 300px;">
+            <div class="window mainwindow" style="width: 300px;">
                 <div class="title-bar">
-                  <div class="title-bar-text">Hello World</div>
+                  <div class="title-bar-text">Website.exe</div>
                   <div class="title-bar-controls">
                     <button aria-label="Minimize"></button>
                     <button aria-label="Maximize"></button>
@@ -44,9 +82,88 @@
                   </div>
                 </div>
                 <div class="window-body">
-                  <p>Hi, welcome to my website. I'm not really doing much with it right now but probably will soon.</p>
+                  <!-- <p>Hi, welcome to my website. I'm not really doing much with it right now but probably will soon.</p> -->
+                  <section class="tabs" style="max-width: 500px">
+                    <menu role="tablist" aria-label="Sample Tabs">
+                      <button role="tab" aria-selected="true" aria-controls="tab-A">MOTD</button>
+                      <button role="tab" aria-controls="tab-B">About Me</button>
+                      <button role="tab" aria-controls="tab-C">About this page</button>
+                    </menu>
+                    <!-- the tab content -->
+                    <article role="tabpanel" id="tab-A">
+                      <h3>Hello World!</h3>
+                      <p>
+                        Welcome to my website. I'm not really doing much with it right now but probably will soon.
+                      </p>
+                    </article>
+                    <article role="tabpanel" hidden id="tab-B">
+                      <h3>About Me</h3>
+                      <p>TODO: Fill this in when I've made stuff I'm proud of.</p>
+                      <button type="button" onclick="OpenPDF()">Open Resume</button>
+                    </article>
+                    <article role="tabpanel" hidden id="tab-C">
+                      <h3>About</h3>
+                      <p>Webpage made using <a href="https://botoxparty.github.io/XP.css/">XP.css</a></p>
+                      <button type="button" onclick="document.getElementsByClassName('ControlPanel')[0].style.visibility='visible'">Open Control Panel</button>
+                    </article>
+                  </section>
                 </div>
               </div>
 		</center>
+
+    <div class="window ControlPanel" style="width: 300px">
+      <div class="title-bar">
+        <div class="title-bar-text">Control Panel</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close" onclick="document.getElementsByClassName('ControlPanel')[0].style.visibility = 'hidden'"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <!-- <fieldset>
+          <legend>Font options</legend>
+          <div class="field-row">
+            <input id="radio17" type="radio" name="fieldset-example2" onclick="ChangeFontStyle (classic);">
+            <label for="radio17">Classic font</label>
+          </div>
+          <div class="field-row">
+            <input id="radio18" type="radio" name="fieldset-example2" onclick="ChangeFontStyleModern();">
+            <label for="radio18">Modern font (more readable)</label>
+          </div>
+        </fieldset> -->
+        <center>
+          <span>1 update available: </span>
+          <button type="button" onclick="InstallUpdates()">Install Updates</button><br>
+          </center>
+          <br>
+      </div>
+      <!-- <div class="theme-switcher">
+        <section class="field-row">
+          <label>Select a theme</label>
+          <select id="theme-switcher-select">
+            <option value="XP.css">Windows XP</option>
+            <option value="98.css">Windows 98</option>
+          </select>
+        </section>
+      </div> -->
+
+      </div>
+      </div>
+
+      <div class="window PDFViewer" style="width: 500px">
+        <div class="title-bar">
+          <div class="title-bar-text">PDF Viewer</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close" onclick="ClosePDF()"></button>
+          </div>
+        </div>
+        <div class="window-body PDFiframe">
+          <iframe src="resume.pdf"></iframe>
+        </div>
+      </div>
+      
 </body>
 </html>
