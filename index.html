@@ -4,7 +4,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
+    .BootLogo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+    .BootLogoFadeOut {
+      -webkit-animation-duration: 2s;
+      animation-duration: 2s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation-name: FadeOut;
+      animation-name: FadeOut;
+    }
+    @-webkit-keyframes FadeOut {
+      0% {opacity: 1;}
+      100% {opacity: 0;}
+    }
+    @keyframes fadeOut {
+      0% {opacity: 1;}
+      100% {opacity: 0;}
+    }
+
     .mainwindow {
+    visibility: hidden;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -14,9 +38,10 @@
         transform: translateX(10%);
     }
     body {
-    background-image: url(https://i.imgur.com/VvNhMb0.jpg);
+    /* background-image: url(https://i.imgur.com/VvNhMb0.jpg); */
     background-position: 70% 25%;
     background-repeat: no-repeat;
+    background-color: #040204;
     }
     .ControlPanel {
     visibility: hidden;
@@ -42,6 +67,29 @@
 </head>
 <body>
     <script>
+        function StartUpSequence() {
+          const sleep = async (milliseconds) => {
+            await new Promise(resolve => {
+              return setTimeout(resolve, milliseconds)
+            });
+          };
+
+          const DelayStartUpSequence = async () => {
+            console.log('Initiating boot');
+            await sleep(3000);
+            document.getElementsByClassName('BootLogo')[0].classList.add("BootLogoFadeOut")
+            await sleep(3000);
+            document.body.style.backgroundImage = 'url(https://i.imgur.com/VvNhMb0.jpg)';
+            document.getElementsByClassName('BootLogo')[0].style.visibility = 'hidden';
+            await sleep(1500);
+            ClosePDF();
+          }
+
+          DelayStartUpSequence();
+          
+        }
+        StartUpSequence();
+
         function InstallUpdates() {
           document.body.style.backgroundColor = "#000080";
           document.body.style.backgroundImage = "none"
@@ -165,5 +213,8 @@
         </div>
       </div>
       
+      <center>
+        <img src="boot.gif" class="BootLogo"></img>
+      </center>
 </body>
 </html>
