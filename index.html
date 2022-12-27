@@ -61,6 +61,16 @@
       height: 100%;
       
     }
+    h3 {
+      /* Credit to https://localghost.dev/blog/building-a-website-like-it-s-1999-in-2022/ for this idea, I tried to modify his wordart to match the orange skewed wordart style */
+      background: linear-gradient(183deg, #fddd00 15%, #fc6200 75%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      transform: skewY(-8deg) scaleY(1.3) scaleX(1);
+      filter: drop-shadow(2px 2px 0px #802601);
+    }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/xp.css">
     <script src="tabfix.js"></script>
@@ -145,12 +155,12 @@
                       </p>
                     </article>
                     <article role="tabpanel" hidden id="tab-B">
-                      <h3>About Me</h3>
+                      <h3>About Me:</h3>
                       <p>TODO: Fill this in when I've made stuff I'm proud of.</p>
                       <button type="button" onclick="OpenPDF()">Open Resume</button>
                     </article>
                     <article role="tabpanel" hidden id="tab-C">
-                      <h3>About</h3>
+                      <h3>About this page:</h3>
                       <p>Webpage made using <a href="https://botoxparty.github.io/XP.css/">XP.css</a></p>
                       <button type="button" onclick="document.getElementsByClassName('ControlPanel')[0].style.visibility='visible'">Open Control Panel</button>
                     </article>
