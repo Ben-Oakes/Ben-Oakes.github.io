@@ -3,78 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="favicon.png">
-    <style>
-    .BootLogo {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translateX(-50%) translateY(-50%);
-    }
-    .BootLogoFadeOut {
-      -webkit-animation-duration: 2s;
-      animation-duration: 2s;
-      -webkit-animation-fill-mode: both;
-      animation-fill-mode: both;
-      -webkit-animation-name: FadeOut;
-      animation-name: FadeOut;
-    }
-    @-webkit-keyframes FadeOut {
-      0% {opacity: 1;}
-      100% {opacity: 0;}
-    }
-    @keyframes fadeOut {
-      0% {opacity: 1;}
-      100% {opacity: 0;}
-    }
-
-    .mainwindow {
-    visibility: hidden;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    }
-    .field-row {
-        transform: translateX(10%);
-    }
-    body {
-    /* background-image: url(https://i.imgur.com/VvNhMb0.jpg); */
-    background-position: 70% 25%;
-    background-repeat: no-repeat;
-    background-color: #040204;
-    }
-    .ControlPanel {
-    visibility: hidden;
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    }
-    .PDFViewer {
-      visibility: hidden;
-      min-width: 100%;
-      height: 100%;
-    }
-    .PDFiframe iframe {
-      width: 100%;
-      min-height: 700px;
-      height: 100%;
-      
-    }
-    h3 {
-      /* Credit to https://localghost.dev/blog/building-a-website-like-it-s-1999-in-2022/ for this idea, I tried to modify his wordart to match the orange skewed wordart style */
-      background: linear-gradient(183deg, #fddd00 15%, #fc6200 75%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-      transform: skewY(-8deg) scaleY(1.5) scaleX(1.2);
-      filter: drop-shadow(1px 1px 0px #802601)drop-shadow(2px 2px 0px #802601);
-    }
-    </style>
+    <link rel="icon" type="image/x-icon" href="xp/favicon.png">
     <link rel="stylesheet" href="https://unpkg.com/xp.css">
-    <script src="tabfix.js"></script>
+    <link rel="stylesheet" href="xp/styles.css">
+    <script src="xp/tabfix.js"></script>
 </head>
 <body>
     <script>
@@ -225,7 +157,7 @@
       </div>
       
       <center>
-        <img src="boot.gif" class="BootLogo"></img>
+        <img src="xp/boot.gif" class="BootLogo"></img>
       </center>
 </body>
 </html>
