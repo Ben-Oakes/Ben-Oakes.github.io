@@ -19,12 +19,12 @@
 
           const DelayStartUpSequence = async () => {
             console.log('Initiating boot');
-            await sleep(3000);
+            await sleep(1500);
             document.getElementsByClassName('BootLogo')[0].classList.add("BootLogoFadeOut")
             await sleep(3000);
-            document.body.style.backgroundImage = 'url(https://i.imgur.com/VvNhMb0.jpg)';
+            document.body.style.backgroundImage = 'url(xp/desktop.jpg)';
             document.getElementsByClassName('BootLogo')[0].style.visibility = 'hidden';
-            await sleep(1500);
+            await sleep(1000);
             ClosePDF();
           }
 
