@@ -1,0 +1,3 @@
+[submodule "hacking-minigame"]
+	path = hacking-minigame
+	url = https://github.com/Ben-Oakes/hacking-minigame
